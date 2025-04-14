@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>tworzenie elementow</h1>
+    </header>
+    
+    <main>
+        <button>Przycisk</button>
+    
+    </main>
+
+    <footer>
+        <p>&copy; Me XXI c.</p>
+    </footer>
+
+    <script>
+        const btn = document.querySelector('button')
+        const display = document.querySelector('main')
+
+        let i = 0;
+        btn.addEventListener('click', function(){
+            const newElement = document.createElement('p');
+            newElement.style.color = '#f00';
+            newElement.textContent= 'nowy element';
+            display.append(newElement);
+
+            const newElementH3 = document.createElement('h3');
+            newElementH3.style.backgroundColor = '#ff0';
+            const h3TextNode = document.createTextNode(`jakis tytul ${i}`);
+            newElementH3.addEventListener('click', function(evt){
+                console.log(this);
+                this.remove()
+            })
+            newElementH3.append(h3TextNode);
+
+            display.append(newElementH3);
+
+            display.append(newElement);
+            i++;
+        });
+    </script>
+
+</body>
+</html>
